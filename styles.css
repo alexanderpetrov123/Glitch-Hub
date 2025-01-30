@@ -34,7 +34,7 @@ body {
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: 6rem;
     color: white;
     text-shadow: 0px 0px 10px #ffff00;
 }
@@ -432,4 +432,76 @@ svg {
     line-height: 1.6; /* Slightly increased line spacing for better readability */
 }
 
+.outer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px; /* Optional spacing between items */
+}
 
+.col-lg-4, .col-md-4, .col-sm-12, .col-xs-12 {
+  flex: 1 1 calc(33.33% - 16px); /* 3 columns layout for larger screens */
+  box-sizing: border-box;
+}
+
+/* Responsive layout for smaller screens (e.g., phones) */
+@media (max-width: 767px) {
+  .col-lg-4, .col-md-4, .col-sm-12, .col-xs-12 {
+    flex: 1 1 100%; /* Make each container take full width */
+  }
+
+  .outer-container {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items if needed */
+  }
+}
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the links horizontally */
+  gap: 16px; /* Optional spacing between links */
+}
+
+.footer-link {
+  text-align: center; /* Center the text in each link */
+}
+
+/* Responsive layout for smaller screens (links stack vertically) */
+@media (max-width: 767px) {
+  .footer-links {
+    flex-direction: column; /* Stack links vertically */
+    align-items: center; /* Center align links */
+    gap: 8px; /* Reduce gap for vertical stacking */
+  }
+
+  .footer-link {
+    width: 100%; /* Optional: Make links take full width */
+    text-align: left; /* Align text to the left (optional) */
+  }
+}
+
+.footer .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
+.footer .footer-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: inherit;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.footer .footer-link:hover {
+    color: #8f00ff; /* Highlight color on hover */
+}
+
+.footer .icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
