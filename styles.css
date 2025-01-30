@@ -125,44 +125,40 @@ svg {
 
 /* Lorem Section */
 .lorem-section {
-    margin-top: 20px; /* Adjust spacing between the diagram and this section */
-    padding: 30px;
-    color: white;
-    text-align: justify;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 1rem;
-    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 65%; /* Limit the width to 65% for larger screens */
+    width: 100%; /* Ensures it spans full width initially */
+}
+
+@media (max-width: 767px) {
+    .lorem-section {
+        max-width: 95%; /* On smaller screens, allow up to 95% width */
+    }
 }
 
 .section-header {
-    text-align: center;
-    font-size: 2rem;
-    color: #ffff00;
-    text-shadow: 0px 0px 10px #ffff00;
-    margin-bottom: 20px;
-}
-
-.styled-list {
-    margin: 20px 0;
-    padding-left: 20px;
-    list-style: none;
-}
-
-.styled-list li {
-    position: relative;
-    padding-left: 20px;
+    text-align: center; /* Ensures headers are centered */
+    font-weight: bold;
     margin-bottom: 10px;
 }
 
-.styled-list li::before {
-    content: "•";
-    color: #8f00ff; /* Matrix purple */
-    font-size: 1.2rem;
-    position: absolute;
-    left: 0;
-    top: 0;
+.styled-list {
+    list-style-type: disc; /* Optional: Keeps bullet points */
+    padding-left: 0; /* Removes default padding for ul */
+    text-align: center; /* Centers the list */
+}
+
+.styled-list li {
+    display: list-item;
+    text-align: center; /* Ensures list items are centered */
+    margin: 5px 0; /* Adds spacing between list items */
 }
 /* Section Container */
 .lorem-section-with-image {
@@ -505,3 +501,57 @@ svg {
     height: 24px;
     fill: currentColor;
 }
+
+/* Custom link styling for card links */
+.custom-card-link {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit color from parent */
+    display: block; /* Ensure the link wraps around the entire custom card */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.custom-card-link:hover {
+    transform: scale(1.02); /* Slight zoom on hover for better interactivity */
+    color: #8f00ff; /* Highlight color on hover */
+}
+
+/* Custom card styling */
+.custom-card {
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent dark background */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Light border with transparency */
+    border-radius: 8px; /* Rounded corners */
+    padding: 16px;
+    text-align: center; /* Center-align content */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.custom-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Elevate on hover */
+    transform: translateY(-4px); /* Slight upward lift on hover */
+}
+
+/* Icon container styling */
+.icon-container {
+    margin-bottom: 12px; /* Space between the icon and the text */
+}
+
+.card-icon {
+    font-size: 32px; /* Adjust icon size */
+    color: #8f00ff; /* Neon purple color */
+}
+
+/* Divider styling */
+.divider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2); /* Light divider with transparency */
+    margin: 16px 0; /* Space above and below the divider */
+}
+
+/* Card text styling */
+.card-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff; /* White text for readability */
+}
+
