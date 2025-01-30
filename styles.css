@@ -560,17 +560,36 @@ svg {
     align-items: center;
     width: 100%;
     padding: 20px;
-    box-sizing: border-box;
     overflow: hidden;
-    opacity: 0;
-    transform: translateY(50px);
-    animation: fadeInUp 1s ease-out forwards;
 }
-
 .svg-container svg {
     max-width: 100%;
     height: auto;
 }
+
+
+.svg-wrapper {
+    display: flex;
+    justify-content: center; /* Centers Horizontally */
+    align-items: center; /* Centers Vertically (if parent allows) */
+    width: 100%;
+    height: auto;
+    margin: 0 auto; /* Keeps it centered */
+    padding: 20px 0;
+    text-align: center; /* Ensures inline text inside stays centered */
+}
+
+.animated-svg {
+    max-width: 80%; /* Prevents it from getting too big */
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .animated-svg {
+        max-width: 95%; /* More width on smaller screens */
+    }
+}
+
 
 /* Animation for appearance */
 @keyframes fadeInUp {
