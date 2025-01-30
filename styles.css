@@ -1,0 +1,435 @@
+/*@import"grid.css";8?
+
+/* General Styles */
+body {
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: black; /* Fallback color */
+}
+
+/* Static Matrix Background */
+.matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Keeps it behind all other content */
+    background: black;
+    overflow: hidden;
+}
+
+/* Fullscreen Container */
+.fullscreen-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    z-index: 1; /* Place above matrix background */
+    text-align: center;
+    color: #8f00ff;
+}
+
+h1 {
+    font-size: 4rem;
+    color: white;
+    text-shadow: 0px 0px 10px #ffff00;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #d1d1d1;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    background-color: #ffff00;
+    color: black;
+    font-size: 1.5rem;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: transform 0.3s;
+}
+
+.cta-button:hover {
+    transform: scale(1.1);
+    background-color: #ffd700;
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #8f00ff;
+}
+
+/* Content Below the Fullscreen Container */
+.content-container {
+    padding: 20px;
+    background: transparent;
+    color: white;
+    z-index: 1; /* Keep above matrix background */
+}
+
+/* Diagram Section */
+.diagram-container {
+    padding: 50px;
+    text-align: center;
+}
+
+/* Purple Divider Line */
+.divider-line {
+    width: 100%;
+    height: 1px; /* Adjust to 1px or 2px as needed */
+    background-color: #8f00ff; /* Matrix purple color */
+    margin: 0; /* No margin to keep the line tight */
+}
+/* Center the diagram in the viewport */
+.diagram-container {
+    display: flex;
+    justify-content: center; /* Centers the SVG horizontally */
+    align-items: center; /* Centers the SVG vertically (optional for height alignment) */
+    padding: 20px; /* Adds 20px padding on all sides (40px total width increase) */
+    background: transparent; /* Ensure the background is transparent */
+    margin: 0 auto; /* Center the container in the parent element */
+    width: fit-content; /* Dynamically adjusts the width to fit the SVG + padding */
+    box-sizing: content-box; /* Ensure padding is added outside the SVG dimensions */
+}
+
+#animated-diagram {
+    width: 80vw; /* Adjust based on viewport width for responsiveness */
+    max-width: 600px; /* Limit the maximum width of the SVG */
+    height: auto; /* Maintain the aspect ratio */
+}
+
+/* Responsive SVG */
+svg {
+    width: 50vw;  /* Scales to viewport width */
+    height: auto;  /* Maintains aspect ratio */
+    max-width: 600px;  /* Prevents it from being too large */
+    max-height: 600px;
+}
+/* Content Section Styling */
+/* Diagram Section */
+.diagram-container {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+/* Lorem Section */
+.lorem-section {
+    margin-top: 20px; /* Adjust spacing between the diagram and this section */
+    padding: 30px;
+    color: white;
+    text-align: justify;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.section-header {
+    text-align: center;
+    font-size: 2rem;
+    color: #ffff00;
+    text-shadow: 0px 0px 10px #ffff00;
+    margin-bottom: 20px;
+}
+
+.styled-list {
+    margin: 20px 0;
+    padding-left: 20px;
+    list-style: none;
+}
+
+.styled-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.styled-list li::before {
+    content: "•";
+    color: #8f00ff; /* Matrix purple */
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+/* Section Container */
+.lorem-section-with-image {
+    text-align: center;
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background: transparent;
+    color: white;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Circular Image Styling */
+.circle-image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.circle-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Makes the image circular */
+    border: 4px solid #8f00ff; /* Adds a matrix-purple border */
+    object-fit: cover; /* Ensures the image fits perfectly */
+}
+
+/* Paragraph Styling */
+.lorem-paragraph {
+    margin-bottom: 20px;
+    color: #d1d1d1;
+    font-size: 1rem;
+    text-align: justify;
+}
+
+/* Button Styling (Reusing Above Style) */
+.cta-button {
+    background-color: #ffff00;
+    color: black;
+    font-size: 1.5rem;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: transform 0.3s;
+}
+
+.cta-button:hover {
+    transform: scale(1.1);
+    background-color: #ffd700;
+}
+/* Outline Button Styling */
+/* Outline Button Styling */
+.outline-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: #8f00ff; /* Matrix purple */
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid #8f00ff; /* Purple outline */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.outline-button:hover {
+    background-color: rgba(143, 0, 255, 0.2); /* Light purple background on hover */
+    color: #ffffff; /* White text on hover */
+}
+
+/* Telegram Icon Styling */
+.telegram-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    transition: transform 0.3s ease, stroke 0.3s ease;
+}
+
+.outline-button:hover .telegram-icon {
+    transform: scale(1.1); /* Slight zoom on hover */
+    stroke: #ffffff; /* Change outline to white on hover */
+}
+
+/* Outer Container to align all cards */
+.outer-container {
+    display: flex;
+    justify-content: space-between; /* Adds space between the cards */
+    align-items: center;
+    margin: 20px auto;
+    max-width: 1200px; /* Adjust as needed */
+    padding: 10px;
+}
+
+
+/* Icon Styling */
+
+.card-icon {
+    font-size: 50px; /* Adjust icon size */
+    color: #8f00ff; /* Matrix purple */
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+/* Card Styling */
+/* Card Styling */
+.custom-card {
+    background-color: black;
+    border: 1px solid #5a005f; /* Darker purple outline */
+    width: 250px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease; /* Smooth transitions for hover effects */
+}
+
+/* Hover Effect */
+.custom-card:hover {
+    border-color: #8f00ff; /* Original purple outline on hover */
+    background-color: rgba(143, 0, 255, 0.3); /* Purple background with 30% opacity */
+}
+
+/* Icon Styling */
+.card-icon {
+    font-size: 50px;
+    color: #8f00ff; /* Original purple color */
+    margin-bottom: 20px;
+    transition: transform 0.3s ease; /* Smooth hover effect for icons */
+}
+
+/* Icon Hover Effect */
+.custom-card:hover .card-icon {
+    transform: scale(1.2); /* Slight zoom on hover */
+}
+
+/* Divider Line */
+.divider {
+    width: 50%; /* 50% width */
+    height: 1px;
+    background-color: white;
+    margin: 10px 0;
+}
+
+/* Card Text */
+.card-text {
+    color: white;
+    font-size: 1rem;
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+}
+
+
+/* Footer Styling */
+/* General Footer Styling */
+.footer {
+    background-color: transparent;
+    padding: 40px 20px;
+    text-align: center;
+    color: white;
+    font-family: 'Courier New', monospace;
+}
+
+/* Footer Top Section */
+.footer-top {
+    margin-bottom: 20px;
+}
+
+.footer-title {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.footer-address {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 0 5px #8f00ff;
+    cursor: pointer;
+}
+
+.footer-address:hover {
+    color: #8f00ff; /* Purple color on hover */
+}
+
+/* Social Media Links */
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.footer-link {
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s ease; /* Smooth hover transition */
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+}
+
+.footer-link i {
+    font-size: 1.4rem; /* Icon size */
+}
+
+/* Hover Effects for Links */
+.footer-link:hover {
+    color: #8f00ff; /* Change text and icon color to purple */
+}
+
+.footer-link::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #8f00ff; /* Purple underline */
+    transition: width 0.3s ease; /* Animation for underline */
+}
+
+.footer-link:hover::after {
+    width: 100%; /* Expand underline on hover */
+}
+
+/* Divider Line */
+.footer-divider {
+    width: 60%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.7); /* White with a hint of gray */
+    margin: 20px auto;
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+    margin-top: 20px;
+    font-family: 'Times New Roman', serif; /* Different font for bottom section */
+    color: rgba(255, 255, 255, 0.7); /* Same color as the divider */
+}
+
+.footer-bottom p {
+    margin: 10px 0;
+    font-size: 1rem;
+    text-transform: italic; /* Makes the text italicized */
+}
+
+.footer-message {
+    font-size: 0.9rem;
+    line-height: 1.6; /* Slightly increased line spacing for better readability */
+}
+
+
